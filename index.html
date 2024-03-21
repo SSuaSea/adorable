@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://www.figma.com/community/plugin/735098390272716381'">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script> <!--차트js-->
 </head>
 <body>
     <header class="border  overflow-hidden">
@@ -59,10 +60,9 @@
                             유기견보호센터 소개
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="plan">기획의도</a></li>
+                            <li><a class="dropdown-item" onclick="planOnClikc()">기획의도</a></li>
                             <li><a class="dropdown-item" href="#">유기동물통계</a></li>
-                            <li><a class="dropdown-item" href="#">문의사항</a></li>
-                            <li><a class="dropdown-item" href="#">연락처 및 약도</a></li>
+                            <li><a class="dropdown-item" onclick="contactOnClikc()">연락처 및 약도</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -71,7 +71,7 @@
                             사랑스러운 반려견 입양
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./Adoption procedures.html">입양절차</a></li>
+                            <li><a class="dropdown-item" href="./adoptionprocedures.html">입양절차</a></li>
                             <li><a class="dropdown-item" href="./adopt.html">보호중인 아이들</a></li>
                         </ul>
                     </li>
@@ -84,33 +84,14 @@
                             <li><a class="dropdown-item" href="#">입양후기</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            스토어
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">사료/간식</a></li>
-                            <li><a class="dropdown-item" href="#">장난감</a></li>
-                            <li><a class="dropdown-item" href="#">미용</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            후원하기
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="support.html">후원하기</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!--메뉴바 끝-->
     <!--실시간 채팅상담-->
-    <button id="live-chat" class="text-center text-dark"><a href="./chat.html">실시간 채팅상담</a></button>
+    <button id="live-chat" class="text-center text-dark"><a href="./chat.html">실시간 채팅상담</a></button>     
+    <button id="bottomId" class="text-center text-dark" onclick="bottomClikc()">맨 아래로</a></button>
     <!--입양해야하는 이유 시작-->
     <section>
         <div class="container"  id="reason">
@@ -129,7 +110,7 @@
         <section class="text-center py-5">
             <h2 class="fw-bold mb-3" id="plan1">평생함께할 반려견, 사지말고 입양하세요</h2>
             <div class="container bg-dark">
-                <div class="text-center my-3 p-4 rounded" id="plan2">
+                <div class="text-center my-3 p-4 rounded" id="plan2">chat.html
                     <img src="./image/기획의도.jpg" alt="기획의도" width="100%">
                     <p class="text-white">수많은 동물들이 펫샵에 오는 유통 과정에서 물건처럼 취급됩니다.<br><br>
                         정부에서는 이러한 관행을 막기 위해 번식장의 동물생산업 등록과
@@ -141,7 +122,39 @@
                 </div>
             </div>
         </section>
-        <!--유기견통계그래프 시작-->
+        <!--유기견통계그래프-->
+        <section class="text-center py-5">
+            <div class="chart-container" style="position: relative;">
+                <div class="row">
+                    <h2>유기견 통계그래프</h2>
+                    <div class="col-sm-2">
+                        <canvas id="chart1"></canvas>
+                        <h4 class="text-black">2018년</h2>
+                    </div>
+                    <div class="col-sm-2">
+                        <canvas id="chart2"></canvas>
+                        <h4 class="text-black">2019년</h2>
+                    </div>
+                    <div class="col-sm-2">
+                        <canvas id="chart3"></canvas>
+                        <h4 class="text-black">2020년</h2>
+                    </div>
+                    <div class="col-sm-2">
+                        <canvas id="chart4"></canvas>
+                        <h4 class="text-black">2021년</h2>
+                    </div>
+                    <div class="col-sm-2">
+                        <canvas id="chart5"></canvas>
+                        <h4 class="text-black">2022년</h2>
+                    </div>
+                    <div class="col-sm-2">
+                        <canvas id="chart6"></canvas>
+                        <h4 class="text-black">2023년</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
         <!--유기견통계그래프 끝-->
         <!--입양중인 아이들 시작-->
         <section class="container overflow-hidden py-5" id="adopt">
@@ -288,7 +301,7 @@
             </div>
         </section>
         <!--풋터 시작-->
-        <footer class="footer mt-auto py-3 bg-light">
+        <footer class="footer mt-auto py-3 bg-light" id="bottomId">
             <div class="container">
               <div class="row text-center">
                 <div class="col-md-4">
@@ -322,5 +335,214 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 여기에 실행할 코드를 작성합니다.
+            // URL에서 GET 파라미터 가져오기
+            var urlParams = new URLSearchParams(window.location.search);
+            // 파라미터의 값을 반환하고, 존재하지 않으면 null 반환
+            // return urlParams.get(name);
+            let contact =  urlParams.get('contact');
+            console.log(contact);
+            if(contact == 'Y'){
+                contactOnClikc()
+        }
+        
+
+        });
+        function planOnClikc(){
+            document.getElementById('plan2').scrollIntoView({ behavior: 'smooth' });
+        }
+        function contactOnClikc(){
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function bottomClikc(){
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        
+    </script>
+    <!--그래프-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        
+        // 데이터 및 옵션 설정
+        var chartData1 = { datasets: [{
+        label: "' of Votes'",
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions1 = {chart1};
+        var chartData2 = { datasets: [{
+        label: ' of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions2 = { /* chart2 데이터 및 옵션 설정 */ };
+        var chartData3 = { datasets: [{
+        label: ' of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions3 = { /* chart3 데이터 및 옵션 설정 */ };
+        var chartData4 = { datasets: [{
+        label: ' of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions4 = { /* chart4 데이터 및 옵션 설정 */ };
+        var chartData5 = { datasets: [{
+        label: ' of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions5 = { /* chart5 데이터 및 옵션 설정 */ };
+        var chartData6 = { datasets: [{
+        label: ' of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]};
+        var chartOptions6 = { /* chart6 데이터 및 옵션 설정 */ };
+
+        // 차트 생성
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'doughnut',
+            data: chartData1,
+            options: chartOptions1
+        });
+
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'doughnut',
+            data: chartData2,
+            options: chartOptions2
+        });
+
+        var ctx3 = document.getElementById('chart3').getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'doughnut',
+            data: chartData3,
+            options: chartOptions3
+        });
+
+        var ctx4 = document.getElementById('chart4').getContext('2d');
+        var chart4 = new Chart(ctx4, {
+            type: 'doughnut',
+            data: chartData4,
+            options: chartOptions4
+        });
+
+        var ctx5 = document.getElementById('chart5').getContext('2d');
+        var chart5 = new Chart(ctx5, {
+            type: 'doughnut',
+            data: chartData5,
+            options: chartOptions5
+        });
+
+        var ctx6 = document.getElementById('chart6').getContext('2d');
+        var chart6 = new Chart(ctx6, {
+            type: 'doughnut',
+            data: chartData6,
+            options: chartOptions6
+        });
+    </script>
 </body>
 </html>

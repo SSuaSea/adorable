@@ -51,8 +51,8 @@ $dark: #777777;*/
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif;
-    /* background-image: url(../image/배경.jpg); */
+  font-family: 'NanumSquareNeoTTF-EB';
+  /* background-image: url(../image/배경.jpg); */
 }
 
 /* 헤더영역 */
@@ -85,7 +85,7 @@ header {
 }
 
 .carousel-item {
-    font-family: 'Sunflower','NanumSquareNeoTTF-EB', sans-serif;
+    font-family: 'NanumSquareNeoTTF-EB';
 }
 
 
@@ -150,7 +150,7 @@ background-image: url(../image/기획의도.jpg);
 #chat-body {
   display: grid;
   background: linear-gradient(to bottom left, #b1e9e7 20%, #F9FBFF 100%);
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeoTTF-EB';
 }
 
 #chat-container {

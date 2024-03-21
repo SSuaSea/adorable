@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');  
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
+
 @font-face {
     font-family: 'NanumSquareNeoTTF-EB';
     src: url('./NanumSquareNeoTTF-dEb.woff')
@@ -27,7 +28,6 @@
     font-weight: nomal;
     font-size: nomal;
 }
-
 a:link{
     text-decoration: none;
     color: black; text-decoration: none;
@@ -39,6 +39,7 @@ a:hover {
 a:visited {
     color: black; text-decoration: none;
 }
+
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -110,12 +111,8 @@ header {
     opacity: 80%;
     text-decoration: none;
 }
-/*플랜*/
 
-plan2{
-    background-color: #444242;
-}
-/*플랜*/
+
 
 /*풋터*/
 footer {
@@ -129,6 +126,7 @@ footer {
 background-image: url(../image/기획의도.jpg);
     }
 }
+
 
 
 #log{
@@ -145,36 +143,30 @@ background-image: url(../image/기획의도.jpg);
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-/******support******/
-/* #support{
-    background-image: url(../image/후원하기이미지.jpg);
-    opacity: 70%;
-    height: 1500px;
-    position: relative;
-} */
 
 
+/*입양절차*/
 
-/******support******/
-
-
-/******login******/
-
-/******login******/
-
-
-/******chat******/
-#chatbox{
-
-}
-
-
-h2 {
+#Adoption-procedures-body {
+    display: grid;
     font-family: 'NanumSquareNeoTTF-EB';
 }
 
-/******chat******/
+#Adoption-procedures-card{
+    background: linear-gradient(to top left, #79C7C5 10%, #F9FBFF 100%);
+}
+
+#Adoption-procedures>h2{
+    font-family: 'NanumSquareNeoTTF-EB';
+}
+
+#Adoption-procedures-fade-right {
+    transition: all 1s linear;
+    width: 100%;
+    opacity: 70%;
+}
 
 
+/*입양절차*/
 
-
+/*입양자격*/
